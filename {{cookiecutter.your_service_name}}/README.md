@@ -1,92 +1,44 @@
-# Sample Express Scaffold Using Cookiecutter
+# Express Scaffold
 
-This repository contains the code used to generate a sample Node and Express API application using Cookiecutter.
+## Running the Application
 
-# Prerequisites
-
-## Install NVM:
+Ensure you have a `.env` file at the root of the application with the `PORT`: {{cookiecutter.development_port_of_service}}. The default value for `PORT` is 8080.
 
 ```bash
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-
-export NVM_DIR="/Users/your-user-name/.nvm"
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+npm install
+npm run start
 ```
 
-## Install node using nvm:
+API Documentation can be found at `http://localhost:{{cookiecutter.development_port_of_service}}/api/api-docs`.
 
-```bash
-nvm install stable
+## Configuration
+
+- All configuration settings should be placed in `/config/config.js`.
+- Settings should be grouped together inside an exportable object.
+- `serverSettings` has been added which exposes the port the application should run on.
+
+#### Default Values
+
+If you would like to run the application without a `.env` file, values in `config.js` should be changed to following format:
+`port = process.env.PORT || 8080;`
+
+## API
+
+The `/api` directory consists of the following:
+
+```
+/routes
+index.js
 ```
 
-```bash
-nvm use node
-```
+`/routes` will hold the implementation of your api. Two files have been set up: `entity.api.js` and `healthcheck.api.js`.
 
-## Install [Yeoman](https://yeoman.io/):
+The entity api contains RESTful endpoints for interacting with `Entity` data.
 
-```bash
-npm install -g yo
-```
+The healthcheck api contains any routes that will be used to check application status. Two have been added: `/ping` and `/healthcheck`
 
-## Install the UIP Express generator
+`index.js` is where your routes should be added to an instance of an express router and exported
 
-```bash
-cd cookiecutter-node-express-scaffold
+### Validation
 
-npm link
-```
-
-# Installing the sample express app
-
-## Run
-
-- From a **NEW** terminal instance run:
-
-  ```bash
-  cookiecutter cookiecutter-node-express-scaffold
-  ```
-
-Follow the instructions in the terminal
-
-# Optional
-
-## Deploying Using Docker
-
-The Sample Dockerfile provided is the most basic configuration needed to build docker image.
-
-## Prerequisites
-
-- Install [Docker](https://www.docker.com/products/docker-desktop)
-- Project created using the `cookiecutter` script
-- Connect to F5 VPN
-
-## Setup
-
-- Ensure Docker is running and you are connected to the VPN
-- Build the container
-
-  - In the root directory of the generated project (the app you created using the yo uip-express script, not the root directory of the repository) update scripts/docker-build and scripts/docker-serve with your {{cookiecutter.your_service_name}} and {{cookiecutter.development_port_of_service}}.
-
-    - where `appName`: {{cookiecutter.your_service_name}} is the desired name of your image, and `port`: {{cookiecutter.development_port_of_service}} is the port you wish the service to run on.
-
-  - then run:
-    ```bash
-    npm run docker-build
-    ```
-
-- Run the container:
-  ```bash
-  npm run docker-serve
-  ```
-
-# Contributing
-
-## [The Scaffold](./app)
-
-- The place to add more templates that the user can generate.
-
-## [The Express Template](./app/templates/example/)
-
-- Example Express application
+`/utils/validators` holds api validation middleware. [Express-validator](https://express-validator.github.io/docs/) has been set up to validate the entity.api

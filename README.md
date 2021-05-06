@@ -1,1 +1,0 @@
-# cookiecutter-node-express-scaffold
