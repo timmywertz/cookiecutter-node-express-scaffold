@@ -1,0 +1,6 @@
+#!/bin/bash
+appName="<app-name>"
+port=<port>
+
+echo "Building Docker Image for $appName"
+docker build ./ -t $appName --build-arg npm_registry=https://nexus.boozallencsn.com/repository/software-studio-npm/ --build-arg port=$port

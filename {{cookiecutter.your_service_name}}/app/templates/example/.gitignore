@@ -1,0 +1,13 @@
+# dependencies
+node_modules
+.env
+
+# logs
+logs
+
+# test-coverage
+.nyc_output
+coverage
+
+# sonarqube
+.scannerwork

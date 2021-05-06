@@ -1,0 +1,26 @@
+{
+  "name": "{{cookiecutter.your_service_name}}",
+  "version": "{{cookiecutter.version}}",
+  "description": "",
+  "main": "index.js",
+  "files": [
+    "app"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "cookiecutter-node-express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "edit-json-file": "^1.4.1",
+    "mkdirp": "^1.0.4",
+    "validate-npm-package-name": "^3.0.0",
+    "yosay": "^2.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.3"
+  }
+}

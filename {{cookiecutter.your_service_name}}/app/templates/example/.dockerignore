@@ -1,0 +1,31 @@
+# NPM and Node modules
+node_modules
+npm-debug.log
+
+# Git and GitHub files
+.git
+.github
+.gitignore
+
+# Code coverage reports
+coverage
+
+# Environment Config
+.env
+
+# Docker
+.dockerignore
+Dockerfile
+*docker-compose.yml
+
+# Documentation
+**/*.md
+
+# Code quality
+.eslintrc*
+.eslintignore
+.editorconfig
+sonar-project.properties
+
+# Application logs
+logs/

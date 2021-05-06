@@ -1,0 +1,209 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "3.0.0",
+    "title": "Express Scaffold",
+    "description": "Example Express API"
+  },
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Entities",
+      "description": "Example API for Entity"
+    },
+    {
+      "name": "Healthcheck",
+      "description": "Routes for status of application"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+
+  "paths": {
+    "/entities": {
+      "get": {
+        "tags": ["Entities"],
+        "summary": "Get all Entities",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Entities"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Entities"],
+        "summary": "Create an Entity",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Entity",
+            "in": "body",
+            "description": "Entity to be created",
+            "schema": {
+              "$ref": "#/definitions/Entity"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "New Entity Created",
+            "schema": {
+              "$ref":"#/definitions/Entity"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/entities/{id}" : {
+      "get": {
+        "tags": ["Entities"],
+        "summary": "Get an Entity",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Id of Entity to be retrieved",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved Entity",
+            "schema": {
+              "$ref": "#/definitions/Entity"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Entities"],
+        "summary": "Update an Entity",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Id of Entity to be updated",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Entity",
+            "in": "body",
+            "description": "Entity to be updated",
+            "schema": {
+              "$ref": "#/definitions/Entity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "New Entity Created",
+            "schema": {
+              "$ref": "#/definitions/Entity"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Entities"],
+        "summary": "Delete an Entity",
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Id of Entity to be deleted",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "New Entity Created"
+          }
+        }
+      }
+    },
+    "/healthcheck": {
+      "get": {
+        "tags": ["Healthcheck"],
+        "summary": "Status of Application",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ping": {
+      "get": {
+        "tags": ["Healthcheck"],
+        "summary": "Ping Application",
+        "produces": ["text/html"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Entity": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "color",
+        "createdOn",
+        "updatedOn"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "createdOn": {
+          "type": "integer",
+          "readOnly": true
+        },
+        "updatedOn": {
+          "type": "integer",
+          "readOnly": true
+        }
+      }
+    },
+    "Entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+       "$ref": "#/definitions/Entity"
+      }
+    }  
+  }
+}

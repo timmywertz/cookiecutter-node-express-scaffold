@@ -1,0 +1,14 @@
+#!/bin/bash
+
+appName="<app-name>"
+port=<port>
+
+if [[ "$(docker images $appName | grep $appName 2> /dev/null)" != "" ]]
+then
+  echo "Container exists. Serving $appName to http://localhost:$port/"
+  docker run -d -p $port:$port $appName
+else
+  echo "Container doesn't exist. Creating and serving $appName on http://localhost:$port/"
+  docker run --name $appName -d -p $port:$port $appName
+fi
+  echo "Service running on http://localhost:$port"
