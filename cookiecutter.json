@@ -2,5 +2,6 @@
   "your_service_name": "E.g. Users",
   "development_port_of_service": "8080",
   "author_name": "E.g. First Last",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "project_name": "{{cookiecutter.your_service_name}}"
 }
