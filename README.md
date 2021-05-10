@@ -80,12 +80,6 @@ npm install
 npm start
 ```
 
-## Run Test
-
-```bash
-npm run test
-```
-
 ## Use the following command to execute the test suites via [Mocha](https://mochajs.org/):
 
 ```bash
