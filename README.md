@@ -71,7 +71,7 @@ cd <your_service_name>
 ## Step 5: Install project dependencies
 
 ```bash
-npm i
+npm install
 ```
 
 ## Step 6: Start Project
