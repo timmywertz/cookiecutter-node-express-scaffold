@@ -1,5 +1,5 @@
 {
-  "your_service_name": "Users",
+  "your_service_name": "users",
   "development_port_of_service": "8080",
   "author_name": "First Last",
   "version": "0.0.1",
