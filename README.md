@@ -9,12 +9,9 @@ Tools you will need:
 - [Git](https://git-scm.com/)
 - [Node](https://nodejs.org/en/)
 - [NPM](https://npmjs.com/) (installed with Node)
-- Code editor or IDE
-
-Technologies you should be familiar with:
-
 - [Python](https://python.org/)
 - [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html/)
+- Code editor or IDE
 
 ## Step 1: Check if you need to install pip
 
