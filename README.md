@@ -13,9 +13,6 @@ Tools you will need:
 
 Technologies you should be familiar with:
 
-- [Lerna](https://lerna.js.org/)
-- [React](https://reactjs.org/)
-- [Storybook](https://storybook.js.org/)
 - [Python](https://python.org/)
 - [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html/)
 
